@@ -1,4 +1,4 @@
--ZOMBIES + GHOSTS
+-GREY = Zombie and ghost knights
 -GREEN = Thief knights -> steal loot + items
 -BLUE = Magician knights -> steal stats
 -RED = Blood Knights -> steal health

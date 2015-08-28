@@ -1,9 +1,12 @@
 var GameState = {
   preload: function(){
     this.game.load.image('castle_over', 'img/background.png');
-    this.game.load.image('castle_battle', 'img/background_battle.png');
     this.load.spritesheet('knight_over', 'img/sprites/player_set.png', 32, 32, 28);
-    this.load.spritesheet('knight_battle', 'img/sprites/player_battle.png', 96, 96, 12);
+    
+    this.game.load.image('castle_battle', 'img/background_battle.png');
+    this.load.spritesheet('knight_battle', 'img/sprites/player_battle.png', 96, 96, 16);
+    this.load.spritesheet('king_battle', 'img/sprites/enemies/king battle.png', 96, 96, 8);
+    
     
     this.game.load.image('attack', 'img/sprites/btn_attack.png');
     this.game.load.image('defend', 'img/sprites/btn_defend.png');
@@ -28,7 +31,7 @@ var GameState = {
     this.knight_battle.animations.add('default', [0], 1, true);
     this.attack_anim = this.knight_battle.animations.add('attack', [4,5,6,7], 12, false);
     this.attack_anim.onComplete.add(this.backDefault, this);
-    this.defend_anim = this.knight_battle.animations.add('defend', [1], 2, false);
+    this.defend_anim = this.knight_battle.animations.add('defend', [12], 2, false);
     this.defend_anim.onComplete.add(this.backDefault, this);
     this.useItem_anim = this.knight_battle.animations.add('item', [8], 2, false);
     this.useItem_anim.onComplete.add(this.backDefault, this);
@@ -36,6 +39,10 @@ var GameState = {
 
     
     this.knight_battle.animations.play('default');
+    
+    
+    //set the enemy
+    this.king_battle = this.game.add.sprite(128, 80, 'king_battle');
     
     //add buttons
     this.attack_btn = this.game.add.sprite(18, 235, 'attack');
